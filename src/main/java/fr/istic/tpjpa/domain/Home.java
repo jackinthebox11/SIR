@@ -1,9 +1,12 @@
 package fr.istic.tpjpa.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Home {
@@ -17,6 +20,8 @@ public class Home {
 	private String adresseIP;
 	
 	private Person person;
+
+	private List<Device> devices;
 	
 	public Home() {
 		
@@ -71,6 +76,15 @@ public class Home {
 	
 	public void setPerson(Person person) {
 		this.person = person;
+	}
+	
+	@OneToMany
+	public List<Device> getDevices() {
+		return devices;
+	}
+	
+	public void setDevices(List<Device> devices) {
+		this.devices = devices;
 	}
 
 }
